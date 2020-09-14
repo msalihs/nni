@@ -1,0 +1,39 @@
+{
+    "model": {
+        "_type":"choice",
+        "_value":[
+            {   "_name":"RandomForest",
+                "max_features": {
+                    "_type": "choice",
+                    "_value": ["auto", "sqrt"]
+                    },
+                "min_samples_split": {
+                    "_type": "choice",
+                    "_value": [2,5,10]
+                    }            
+            },
+            {   "_name":"LightGBM",
+                "num_leaves": {
+                    "_type": "choice",
+                    "_value": [7,15,31,63]
+                    },
+                "learning_rate": {
+                "_type": "loguniform",
+                "_value": [0.01, 0.1]
+                }
+            },
+            {   "_name":"XGBoost",
+                "booster": {
+                    "_type": "choice",
+                    "_value": ["gbtree", "gblinear", "dart"]
+                    },
+                "learning_rate": {
+                "_type": "loguniform",
+                "_value": [0.01, 0.1]
+                }
+            }
+            ]
+        },
+    "max_depth": {"_type":"choice","_value":[2,4,6,8]},
+    "n_estimators": {"_type":"choice","_value":[5,10,20,50]}
+}
